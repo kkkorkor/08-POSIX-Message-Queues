@@ -53,7 +53,7 @@ int main(void) {
     if (strncmp(a_msg.data, "end", 3) == 0)
       running = 0;
   }
-  mq_close(mqd);  // just close file, but file still exists
+  mq_close(mqd);  // close the posix msgQ (just close file, but file still exists)
   if (mq_unlink(Q_NAME) == -1) {  // unlink when done (unlink: destroy file)
     perror("mq_unlink failed ");
     exit(EXIT_FAILURE);
